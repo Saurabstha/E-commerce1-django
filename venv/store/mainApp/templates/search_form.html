@@ -1,0 +1,32 @@
+<!--<form method="GET" class="form-inline my-2 my-lg-0" action="">-->
+    <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" >-->
+    <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+<!--</form>-->
+
+<h1>Search Page</h1>
+
+<br/>
+<form action="{% url 'searchProducts' %}" method="GET" value="{{request.GET.q}}">
+Search <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search posts"/>
+<input type="submit" name="submit" value="Search"/>
+</form>
+
+
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if results %}
+<h1>Results for <b>{{ request.GET.q }}</b></h1>
+<br/><br/>
+
+{% for result in results %}
+
+{{result.title}}
+<br/>
+
+{{result.content}}
+<br/>
+
+{% endfor %}
+{% else %}
+No search results for this query
+{% endif %}
+{% endif %}
