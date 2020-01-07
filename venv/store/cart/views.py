@@ -17,7 +17,7 @@ def cart(request):
     carts = Cart.objects.all()
     # quantity = get_total_quantity_in_cart(carts)
     template = loader.get_template('cart.html')
-    return HttpResponse(template.render({"carts":carts},{"request":request}))
+    return HttpResponse(template.render({"carts":carts,"request":request}))
 
 def add_to_cart(request, id, quantity):
     carts = Cart.objects.all()

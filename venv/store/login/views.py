@@ -64,7 +64,7 @@ def signup(request):
 
     csrfContext = RequestContext(request)
     signup_form = SignupForm()
-    return render(request,'register.html',{'form': signup_form},csrfContext,{"request":request})
+    return render(request,'register.html',{'form': signup_form,"request":request},csrfContext)
 
 class RegisterViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()

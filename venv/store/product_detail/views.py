@@ -20,4 +20,4 @@ def new_product_detail(request, id):
 
    print(product.pimage)
    template = loader.get_template('product_detail.html')
-   return HttpResponse(template.render({"sizes":sizes,"colors":colors,"product":product},{"request":request}))
+   return HttpResponse(template.render({"sizes":sizes,"colors":colors,"product":product,"request":request}))
